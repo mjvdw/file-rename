@@ -5,7 +5,7 @@ import exiftool
 from datetime import datetime
 
 # Path to the directory containing the files
-path = os.path.abspath(os.path.join(os.path.expanduser("~"), 'projects', 'P0485 Dragon Boating Photos', '1 Raw'))
+path = os.path.abspath(os.path.join(os.path.expanduser("~"), 'Projects', 'P0486 Christchurch Peace Train', '1 Raw'))
 
 # List all files in given directory
 files = os.listdir(path)
@@ -22,7 +22,7 @@ with exiftool.ExifToolHelper() as et:
         timestamp = int(datetime.strptime(date_time, "%Y:%m:%d %H:%M:%S.%f%z").timestamp() * 1000)
 
         # Rename the file
-        new_filename = f"MJVDW-{timestamp}.{file.split('.')[-1]}"
+        new_filename = f"MJVDW_{timestamp}.{file.split('.')[-1]}"
         new_files.append(new_filename)
         os.rename(os.path.join(path, file), os.path.join(path, new_filename))
 
